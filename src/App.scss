@@ -1,0 +1,59 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(285, 56%, 10%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quote {
+  width: 50%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 2rem;
+  position: relative;
+  @media screen and (max-width: 576px) {
+    width: 90%;
+  }
+  &__text {
+    font-family: "Patrick Hand", cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: hsl(36, 100%, 50%);
+    margin-bottom: 2.5rem;
+    @media screen and (max-width: 576px) {
+      font-size: 2.5rem;
+    }
+  }
+  &__author {
+    background-color: hsl(36, 100%, 50%);
+    color: #fff;
+    width: max-content;
+    padding: 1rem 4rem;
+    border-radius: 27px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(50%) translateX(-50%);
+    font-family: "Ephesis", cursive;
+    font-size: 2.3rem;
+  }
+  &-button {
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    border-radius: 5px;
+    background-color: #000;
+    color: hsl(36, 100%, 50%);
+    position: absolute;
+    right: 0;
+    transform: translateX(50%);
+    cursor: pointer;
+
+    @media screen and (max-width: 576px) {
+      transform: translateX(-1rem);
+    }
+  }
+}
