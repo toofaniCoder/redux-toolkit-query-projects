@@ -7,7 +7,13 @@ export const commentsApi = createApi({
   }),
   endpoints: (builder) => ({
     getComments: builder.query({
-      query: () => "comments",
+      query: (page) => "comments?_start=0&_page=" + page,
+      transformResponse: (data, meta) => {
+        return {
+          count: meta.response.headers.get("X-Total-Count"),
+          comments: data,
+        };
+      },
     }),
   }),
 });

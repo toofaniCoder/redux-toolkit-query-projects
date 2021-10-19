@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useGetCommentsQuery } from "../services/commentsApi";
 import Avatar from "@mui/material/Avatar";
+import Pagination from "@mui/material/Pagination";
 
 function stringToColor(string) {
   let hash = 0;
@@ -38,15 +39,16 @@ function stringAvatar(name) {
 }
 
 const Comments = () => {
-  const { data, isFetching, isSuccess } = useGetCommentsQuery();
+  const [page, setPage] = useState(1);
+  const { data, isFetching, isSuccess } = useGetCommentsQuery(page);
   return (
     <Box sx={{ width: "100%" }}>
       {isFetching && <LinearProgress />}
       {isSuccess && (
         <Container sx={{ py: 3 }}>
           <Grid container spacing={2}>
-            {data.map(({ name, email, body }) => (
-              <Grid item sm={3}>
+            {data.comments.map(({ id, name, email, body }) => (
+              <Grid item sm={3} key={id}>
                 <Paper sx={{ py: 3, px: 2 }}>
                   <Stack spacing={2} direction="row">
                     <Avatar {...stringAvatar(name)} />
@@ -59,6 +61,14 @@ const Comments = () => {
               </Grid>
             ))}
           </Grid>
+          <Box sx={{ py: 4, display: "flex", justifyContent: "center" }}>
+            <Pagination
+              page={page}
+              count={Number(data.count) / Number(data.comments.length)}
+              color="primary"
+              onChange={(e, pageNumber) => setPage(pageNumber)}
+            />
+          </Box>
         </Container>
       )}
     </Box>
