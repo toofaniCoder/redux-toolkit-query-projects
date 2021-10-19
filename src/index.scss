@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  @media screen and (max-width: 576px) {
+    font-size: 52.5%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+}

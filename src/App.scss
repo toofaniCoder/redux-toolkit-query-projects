@@ -1,0 +1,7 @@
+a {
+  &.active,
+  &.active:focus {
+    background-color: #000;
+    color: #fff;
+  }
+}
