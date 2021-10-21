@@ -1,0 +1,84 @@
+{
+  "students": [
+    {
+      "name": "Amrita Dutta",
+      "phone": "+91777-578-8589",
+      "email": "Chandraayan.Chaturvedi30@hotmail.com"
+    },
+    {
+      "name": "Inder Jha",
+      "phone": "+91824-336-4563",
+      "email": "Dinkar88@hotmail.com"
+    },
+    {
+      "name": "Shubha Dutta",
+      "phone": "+91-996-6698571",
+      "email": "Chapala.Chaturvedi9@gmail.com"
+    },
+    {
+      "name": "Adripathi Chattopadhyay",
+      "phone": "+91638-220-5621",
+      "email": "Gautama.Patel@gmail.com"
+    },
+    {
+      "name": "Dhana Pilla",
+      "phone": "+919095930108",
+      "email": "Chitrali.Dubashi21@hotmail.com"
+    },
+    {
+      "name": "Lal Dwivedi",
+      "phone": "+919603137752",
+      "email": "Ujjawal.Sethi79@hotmail.com"
+    },
+    {
+      "name": "Kalyani Bhat",
+      "phone": "+91-736-6659993",
+      "email": "Dayaanidhi4@gmail.com"
+    },
+    {
+      "name": "Karunanidhi Iyer",
+      "phone": "+91888-121-4267",
+      "email": "Digambara.Varman@yahoo.co.in"
+    },
+    {
+      "name": "Dhanpati Chaturvedi",
+      "phone": "+91-668-0108795",
+      "email": "Bhaswar70@gmail.com"
+    },
+    {
+      "name": "Jai Varman",
+      "phone": "+91779-273-3596",
+      "email": "Avadhesh61@yahoo.co.in"
+    },
+    {
+      "name": "Dandapaani Malik",
+      "phone": "+91739-531-6060",
+      "email": "Achintya41@gmail.com"
+    },
+    {
+      "name": "Deepesh Patil",
+      "phone": "+91-880-4137513",
+      "email": "Ananta66@hotmail.com"
+    },
+    {
+      "name": "Mangalya Kaur",
+      "phone": "+91-696-4658626",
+      "email": "Purnima_Embranthiri51@yahoo.co.in"
+    },
+    {
+      "name": "Marut Gupta",
+      "phone": "+917208805963",
+      "email": "Shresth.Varman47@yahoo.co.in"
+    },
+    {
+      "name": "Rajinder Deshpande",
+      "phone": "+919109084503",
+      "email": "Amritambu74@hotmail.com"
+    },
+    {
+      "name": "Vimal Naik",
+      "phone": "+916687435500",
+      "email": "Lakshmi68@hotmail.com"
+    }
+  ]
+}
