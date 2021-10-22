@@ -1,7 +1,12 @@
-import { useState } from "react";
-import { Input, Row, Col, Button, Card } from "antd";
+import { useState, useEffect } from "react";
+import { Input, Row, Col, Button, Card, message } from "antd";
+import { useAddStudentMutation } from "../../services/students";
+
+const KEY = "ADD_STUDENT";
 
 const AddStudent = ({ history }) => {
+  const [addStudent, { isLoading, isSuccess }] = useAddStudentMutation();
+
   const [data, setData] = useState({
     fullName: "",
     phone: "",
@@ -10,9 +15,9 @@ const AddStudent = ({ history }) => {
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+    await addStudent(data);
 
     // after submit data
     setData({
@@ -23,6 +28,19 @@ const AddStudent = ({ history }) => {
 
     history.push("/");
   };
+
+  useEffect(() => {
+    if (isLoading) {
+      message.loading({ content: "createing student...", KEY });
+    }
+    if (isSuccess) {
+      message.success({
+        content: "student created successfully",
+        KEY,
+        duration: 3,
+      });
+    }
+  }, [isLoading, isSuccess]);
   return (
     <form onSubmit={handleSubmit}>
       <Card title="Create a new student">
@@ -34,6 +52,7 @@ const AddStudent = ({ history }) => {
               name="fullName"
               value={data.fullName}
               onChange={handleChange}
+              disabled={isLoading}
             />
           </Col>
           <Col span={24}>
@@ -43,6 +62,7 @@ const AddStudent = ({ history }) => {
               name="phone"
               value={data.phone}
               onChange={handleChange}
+              disabled={isLoading}
             />
           </Col>
           <Col span={24}>
@@ -52,10 +72,11 @@ const AddStudent = ({ history }) => {
               name="email"
               value={data.email}
               onChange={handleChange}
+              disabled={isLoading}
             />
           </Col>
           <Col span={24}>
-            <Button htmlType="submit" type="primary">
+            <Button loading={isLoading} htmlType="submit" type="primary">
               Add Student
             </Button>
           </Col>

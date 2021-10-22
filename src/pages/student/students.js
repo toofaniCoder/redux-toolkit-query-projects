@@ -1,42 +1,29 @@
-import { Row, Col, Card, Typography } from "antd";
+import { Row, Col, Card, Typography, Spin } from "antd";
 import { EditOutlined, DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import { useGetStudentsQuery } from "../../services/students";
+import StudentItem from "./student-item";
 const { Title, Paragraph } = Typography;
 
 const Students = () => {
   let history = useHistory();
+
+  const { data, isFetching } = useGetStudentsQuery();
+
   return (
-    <Row gutter={[20, 20]}>
-      {new Array(8).fill("").map((item, index) => (
-        <Col span={6} key={index}>
-          <Card
-            hoverable={true}
-            bordered={false}
-            cover={<img alt="example" src="https://i.pravatar.cc/1920" />}
-            actions={[
-              <EyeOutlined
-                key="view"
-                onClick={() => history.push("/students/100")}
-              />,
-              <EditOutlined
-                key="edit"
-                onClick={() => history.push("/students/edit/100")}
-              />,
-              <DeleteOutlined
-                key="setting"
-                onClick={() => alert("delete item!")}
-              />,
-            ]}
-          >
-            <div className="student-info">
-              <Title level={5}>Subroto Biswas</Title>
-              <Paragraph>subroto@example.com</Paragraph>
-              <Paragraph>+91 444-4444-444</Paragraph>
-            </div>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <>
+      {isFetching ? (
+        <div className="spinner-wrapper">
+          <Spin size="large" />
+        </div>
+      ) : (
+        <Row gutter={[20, 20]}>
+          {data.map((student) => (
+            <StudentItem key={student.id} student={student} />
+          ))}
+        </Row>
+      )}
+    </>
   );
 };
 
